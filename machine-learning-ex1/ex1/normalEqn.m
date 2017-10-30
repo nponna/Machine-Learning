@@ -12,7 +12,10 @@ theta = zeros(size(X, 2), 1);
 
 % ---------------------- Sample Solution ----------------------
 
-
+mul = X'* X;
+inverse = pinv(mul);
+mul2 = inverse * X';
+theta = mul2 * y;
 
 
 % -------------------------------------------------------------

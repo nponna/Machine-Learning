@@ -18,7 +18,12 @@ for iter = 1:num_iters
     %
 
 
-
+    hx = X * theta;
+    diff = hx - y;
+    sum = diff' * X;
+    mul_constants = alpha*(1/m);
+    summation = mul_constants * sum';
+    theta = theta - summation;
 
 
 

@@ -27,6 +27,15 @@ sigma = zeros(1, size(X, 2));
 %       
 
 
+mu = mean(X);
+sigma = std(X);
+
+
+for j = 1:size (X,2)
+  diff = X(:,j) - mu(j);
+  normalized = diff/sigma(j);
+  X_norm(:,j) = normalized;
+end
 
 
 
