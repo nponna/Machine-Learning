@@ -22,9 +22,19 @@ p = zeros(size(X, 1), 1);
 %
 
 
+X = [ones(m, 1) X];
+a1 = X;
+%size(a1)
+z2 = a1*(Theta1');
 
-
-
+a2 = sigmoid(z2);
+m2 = size(a2, 1);
+a2 = [ones(m2, 1) a2];
+%size(a2)
+z3 = a2*(Theta2');
+a3 = sigmoid(z3);
+[maxs,i_s] = max(a3,[],2);
+p = i_s;
 
 
 
