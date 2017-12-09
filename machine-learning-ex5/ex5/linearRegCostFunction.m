@@ -37,6 +37,10 @@ sum = diff' * X;
 mul_constants = (1/m);
 grad = mul_constants * sum';
 
+div3 = lambda/m;
+
+grad(2:end,:) = grad(2:end,:) + (div3 .* theta(2:end,:)); 
+
 
 
 

@@ -39,6 +39,26 @@ error_val = zeros(length(lambda_vec), 1);
 %
 %
 
+n = size(Xval, 1);
+m = size(X, 1);
+
+
+for j = 1:length(lambda_vec)
+  lambda = lambda_vec(j);
+  x_used = [ones(m, 1) X];
+  y_used = y;
+
+  [theta] = trainLinearReg(x_used, y_used, lambda);
+
+  [J_train,grad_train] = linearRegCostFunction(x_used, y_used, theta, 0);
+  error_train(j) = J_train;
+
+  x_used_val = [ones(n, 1) Xval];
+  y_used_val = yval;
+
+  [J_val,grad_val] = linearRegCostFunction(x_used_val, y_used_val, theta, 0);
+  error_val(j) = J_val;
+end
 
 
 
